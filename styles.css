@@ -1,0 +1,410 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ecf0f1; /* Lighter background */
+  color: #34495e; /* Darker, more readable text */
+  line-height: 1.6;
+}
+
+/* Add this to your general body styles or at the end of styles.css */
+body.no-scroll {
+    overflow: hidden; /* Prevents scrolling when mobile menu is open */
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  background-color: #343a40; /* Darker header */
+  color: #fff;
+  padding: 15px 0; /* Slightly less padding, more modern */
+  position: sticky; /* Makes header stick to top */
+  top: 0;
+  z-index: 100; /* Ensure it stays on top of other content */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow */
+}
+
+.nav-container { /* Updated class name */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Add padding to the container itself */
+}
+
+.site-logo { /* New class for the logo */
+  font-size: 2.2em; /* Make logo more prominent */
+  font-weight: bold;
+  letter-spacing: -0.5px; /* Slightly tighter letter spacing for logo */
+}
+
+/* Main Navigation */
+.main-nav ul {
+  list-style: none;
+  display: flexbox;/* Display list items in a row */
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li {
+  margin-left: 25px; /* Space between navigation items */
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500; /* Slightly bolder font for nav links */
+  padding: 5px 0; /* Vertical padding for hover effect */
+  position: relative; /* For underline effect */
+  transition: color 0.3s ease;
+}
+
+.main-nav a::after { /* Underline hover effect */
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #007bff; /* Accent color for underline */
+  transition: width 0.3s ease-out;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+/* Mobile Menu Toggle (Hamburger Icon) */
+.menu-toggle {
+  display: none; /* Hidden by default on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px; /* 3 bars of 3px each + 2 spaces of 6px */
+  cursor: pointer;
+  z-index: 200; /* Ensure it's above other content */
+}
+
+.menu-toggle .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animation for Hamburger to Cross */
+.menu-toggle.is-active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Hero Section */
+.hero {
+  background: url('../images/background.jpg') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  /* Add subtle text shadow for better readability on image */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero h2 {
+    margin-bottom: 10px;
+    font-size: 2.5em; /* Make hero heading larger */
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.hero .btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px; /* Slightly larger button */
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.hero .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Products Section */
+.products {
+  padding: 60px 20px; /* More padding */
+  text-align: center;
+  background-color: #ffffff; /* Explicitly white for contrast */
+}
+
+.products h2 {
+  margin-bottom: 30px; /* More space below heading */
+  font-size: 2em;
+  color: #2c3e50; /* Darker heading color */
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Slightly wider cards */
+  gap: 30px; /* More gap */
+  margin-top: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px; /* More padding inside card */
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e0e0e0; /* Subtle border */
+}
+
+.card:hover {
+  transform: translateY(-8px); /* More pronounced lift */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px; /* Space between image and text */
+}
+
+.card h3 {
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 1.3em;
+}
+
+.card p {
+    font-weight: bold;
+    color: #007bff; /* Price in accent color */
+    font-size: 1.1em;
+}
+
+
+/* About Section */
+.about {
+  padding: 60px 20px; /* More padding */
+  background-color: #ffffff; /* Explicitly white */
+  line-height: 1.8;
+}
+
+.about h2,
+.about h3 {
+  margin-top: 20px;
+  margin-bottom: 15px; /* Add margin-bottom to headings */
+  color: #2c3e50; /* Darker heading color */
+  font-size: 2em; /* Adjust size */
+}
+
+.about h3 {
+    font-size: 1.5em; /* Adjust size for subheadings */
+}
+
+.about p {
+    margin-bottom: 15px; /* Space between paragraphs */
+}
+
+.about ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+.about ul li {
+    margin-bottom: 10px; /* Space between list items */
+    font-size: 1.1em;
+}
+
+.about ul li::before {
+  content: '✔️';
+  margin-right: 8px;
+  color: #007bff;
+}
+
+/* Contact Section */
+.contact {
+  padding: 60px 20px; /* More padding */
+  background: #ffffff; /* Explicitly white */
+}
+
+.contact h2 {
+  margin-bottom: 15px;
+  font-size: 2em;
+  color: #2c3e50; /* Darker heading color */
+}
+
+.contact p {
+  margin-bottom: 30px; /* More space below intro text */
+  font-size: 1.1em;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+  padding: 30px; /* Add padding to form itself */
+  border: 1px solid #e0e0e0; /* Subtle form border */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px; /* More space below label */
+  font-weight: bold;
+  color: #2c3e50; /* Darker label color */
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px; /* More padding in inputs */
+  border: 1px solid #bdc3c7; /* Softer border color */
+  border-radius: 5px;
+  font-size: 1em; /* Ensure good font size */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Blue focus ring */
+}
+
+
+/* Buttons */
+button.btn,
+a.btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 25px; /* Consistent padding with hero button */
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.1em; /* Slightly larger text */
+  display: inline-block;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+
+button.btn:hover,
+a.btn:hover {
+  background: #0056b3;
+}
+
+/* Footer */
+footer {
+  background: #343a40; /* Darker footer */
+  color: #fff;
+  text-align: center;
+  padding: 25px 0; /* More padding */
+  margin-top: 60px; /* More space above footer */
+  font-size: 0.9em;
+}
+
+/* Responsive Adjustments for Header & Navigation */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: space-between; /* Keep logo and toggle separated */
+    align-items: center;
+  }
+
+  .site-logo {
+    margin-bottom: 0; /* Remove margin from mobile logo */
+  }
+
+  .menu-toggle {
+    display: flex; /* Show hamburger on mobile */
+  }
+
+  .main-nav {
+    width: 100%; /* Take full width on mobile */
+    max-height: 0; /* Collapse navigation by default */
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out; /* Smooth slide effect */
+    flex-basis: 100%; /* Ensure it takes full row below logo/toggle */
+  }
+
+  .main-nav.is-active {
+    max-height: 300px; /* Expand to show navigation items */
+  }
+
+  .main-nav ul {
+    flex-direction: column; /* Stack navigation items vertically */
+    text-align: center;
+    padding: 20px 0; /* Padding when expanded */
+    background-color: #2c3e50; /* Darker background for mobile menu */
+    border-radius: 8px;
+    margin-top: 15px; /* Space below header */
+  }
+
+  .main-nav li {
+    margin: 10px 0; /* Vertical spacing for mobile links */
+  }
+
+  .main-nav a {
+    font-size: 1.2em; /* Larger font for mobile links */
+    display: block; /* Make links fill their space for easier tapping */
+    padding: 10px 0;
+  }
+
+  .main-nav a::after { /* Remove underline effect for mobile */
+      display: none;
+  }
+
+  /* Other responsive adjustments (existing) */
+  .hero {
+    padding: 80px 15px;
+  }
+
+  .hero h2 {
+    font-size: 2em;
+  }
+
+  .hero p {
+    font-size: 1em;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+
+  .products, .about, .contact {
+    padding: 40px 15px; /* Adjust padding for smaller screens */
+  }
+
+  form {
+    padding: 20px;
+  }
+}
